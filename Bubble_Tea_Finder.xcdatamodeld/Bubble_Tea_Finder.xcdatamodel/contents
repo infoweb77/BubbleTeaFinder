@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G1004" minimumToolsVersion="Xcode 7.0">
+    <entity name="Category" representedClassName=".Category" syncable="YES">
+        <attribute name="categoryID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="shop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Shop" inverseName="category" inverseEntity="Shop" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName=".Location" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="crossStreet" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="distance" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lat" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lng" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <relationship name="shop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Shop" inverseName="location" inverseEntity="Shop" syncable="YES"/>
+    </entity>
+    <entity name="PriceInfo" representedClassName=".PriceInfo" syncable="YES">
+        <attribute name="priceCategory" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="shop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Shop" inverseName="priceInfo" inverseEntity="Shop" syncable="YES"/>
+    </entity>
+    <entity name="Shop" representedClassName=".Shop" syncable="YES">
+        <attribute name="favorite" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="specialCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="shop" inverseEntity="Category" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="shop" inverseEntity="Location" syncable="YES"/>
+        <relationship name="priceInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PriceInfo" inverseName="shop" inverseEntity="PriceInfo" syncable="YES"/>
+        <relationship name="stats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="shop" inverseEntity="Stats" syncable="YES"/>
+    </entity>
+    <entity name="Stats" representedClassName=".Stats" syncable="YES">
+        <attribute name="checkinsCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="tipCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="usersCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="shop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Shop" inverseName="stats" inverseEntity="Shop" syncable="YES"/>
+    </entity>
+    <fetchRequest name="FetchRequest" entity="Shop"/>
+    <elements>
+        <element name="Category" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Location" positionX="-18" positionY="54" width="128" height="150"/>
+        <element name="PriceInfo" positionX="-54" positionY="9" width="128" height="75"/>
+        <element name="Shop" positionX="0" positionY="99" width="128" height="165"/>
+        <element name="Stats" positionX="-36" positionY="18" width="128" height="105"/>
+    </elements>
+</model>
